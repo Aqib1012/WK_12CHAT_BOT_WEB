@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Modern AI Chat — Gemini</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <i class="fas fa-robot"></i>
+          <span>Gemini Chat</span>
+        </div>
+        <div class="top-actions">
+          <span class="model">Model: <strong>gemini-2.5-flash</strong></span>
+          <button id="clearBtn" class="icon-btn" title="Clear chat"><i class="fas fa-trash"></i></button>
+        </div>
+      </div>
+    </header>
+
+    <main class="app-grid">
+      <aside class="sidebar">
+        <div class="sidebar-section">
+          <h3>Quick Prompts</h3>
+          <button class="quick-prompt">Explain quantum computing</button>
+          <button class="quick-prompt">Give me a blog outline</button>
+          <button class="quick-prompt">Help debug this Python error</button>
+          <button class="quick-prompt">Suggest UI improvements</button>
+        </div>
+        <div class="sidebar-section">
+          <h3>About</h3>
+          <p class="muted">A simple modern chat UI connected to Google Gemini. Keep your API key in <code>.env</code>.</p>
+        </div>
+      </aside>
+
+      <section class="chat-panel">
+        <div id="chatMessages" class="chat-messages">
+          <div class="welcome">
+            <h2>Welcome 👋</h2>
+            <p class="muted">Start a conversation with Gemini. Type a message below and press Enter to send.</p>
+          </div>
+        </div>
+
+        <div class="composer">
+          <textarea id="userInput" class="user-input" placeholder="Type your message... (Shift+Enter for newline)"></textarea>
+          <button id="sendBtn" class="send-btn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+      </section>
+    </main>
+
+    <div id="loadingSpinner" class="loading-spinner hidden"><div class="spinner"></div></div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
